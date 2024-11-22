@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>PGX</title>
+</head>
+<body>
+<script>
+const array = ['+53', '+57', '+52'];
+const url = 'https://ipapi.co/json/';
+fetch(url)
+ .then(response => {
+return response.json();
+ })
+ .then(data => {
+const country = data.country_calling_code; 
+if (array.indexOf(country) !== -1) {
+location.href = 'acceso_restringido.html';
+} else {
+location.href = "acceso_garantizado.html";
+}
+ })
+ .catch(error => {
+console.error('Error al obtener la información:', error);
+ });
+</script>
+
+
+
+
+
+
+</body>
+
+</html>
